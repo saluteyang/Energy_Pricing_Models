@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}\LaTeX Syntax}{2}{section.1}
+\contentsline {subsection}{\numberline {1.1}Document level formatting}{2}{subsection.1.1}
+\contentsline {subsection}{\numberline {1.2}Title page formatting}{2}{subsection.1.2}
+\contentsline {subsection}{\numberline {1.3}Creating special elements}{2}{subsection.1.3}
+\contentsline {subsection}{\numberline {1.4}Math notation}{2}{subsection.1.4}
+\contentsline {subsection}{\numberline {1.5}Lists and tables}{3}{subsection.1.5}
+\contentsline {subsubsection}{\numberline {1.5.1}An enumerated list}{3}{subsubsection.1.5.1}
+\contentsline {subsubsection}{\numberline {1.5.2}A bullet point list}{3}{subsubsection.1.5.2}
+\contentsline {subsubsection}{\numberline {1.5.3}Basic tables}{3}{subsubsection.1.5.3}
+\contentsline {section}{\numberline {2}R Code Essentials}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}Coding stochastic process}{5}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Random Walk}{5}{subsubsection.2.1.1}
+\contentsline {subsection}{\numberline {2.2}Coding basis stats}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Histogram}{6}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Fitting GARCH (1,1)}{7}{subsubsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.3}Dependence Structure}{7}{subsubsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.4}\texttt {gtools}, \texttt {tseries}, and \texttt {forecast}}{8}{subsubsection.2.2.4}
+\contentsline {section}{\numberline {3}Using Markdown and slidify}{8}{section.3}
+\contentsline {subsection}{\numberline {3.1}R Markdown}{9}{subsection.3.1}
+\contentsline {subsubsection}{\numberline {3.1.1}Lists}{9}{subsubsection.3.1.1}
+\contentsline {subsubsection}{\numberline {3.1.2}Headers}{9}{subsubsection.3.1.2}
+\contentsline {subsection}{\numberline {3.2}slidify}{9}{subsection.3.2}
+\contentsline {section}{\numberline {4}Example Code}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}R, slidify and Markdown examples}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}\LaTeX examples}{15}{subsection.4.2}

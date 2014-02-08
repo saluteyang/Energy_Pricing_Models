@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Price processes}{2}
+\contentsline {subsection}{\numberline {1.1}Random Walk}{2}
+\contentsline {subsection}{\numberline {1.2}Mean-Reverting Ornstein-Uhlenbeck Process}{3}
+\contentsline {subsection}{\numberline {1.3}Cox-Ingersoll-Ross (CIR) Process}{4}
+\contentsline {section}{\numberline {2}Fitting Models}{5}
+\contentsline {subsection}{\numberline {2.1}Some Exploratory Data Analysis}{5}
+\contentsline {subsection}{\numberline {2.2}Fitting a GARCH (1,1) Model}{10}
+\contentsline {subsection}{\numberline {2.3}Analysis of Dependence Structure}{13}

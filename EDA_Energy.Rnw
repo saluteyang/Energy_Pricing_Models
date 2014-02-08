@@ -1,0 +1,366 @@
+\iffalse
+
+These are R code chunks wrapped in the LaTex markup language. It is woven by the kintr package and typeset into PDF using pdfLaTex. The local installation of LaTex is MikTex 2.9. Additionally, for smaller non-R text, PDF preview is done with the help of Texmaker. The latter is a more sensible choice if no R code is embedded that needs dynamic evaluation. With Texmaker, a large number of Tex packages also become available. Finally, some time was saved by caching some code chunck results using the cache feature in knitr as a number of simulation and optimization procedures are quite time-consuming.
+
+While knitr can also work with R Markdown, which is much simpler to learn and creates good results in html, the knitted html is not optimized for printing. The automatic conversion feature that knitr provides to translate R Markdown to LaTex has little user-control and, especially with graphics, can create the problem of floating in unexpected places.
+
+As such, this file before compiling can also be used to illustrate some basic features of LaTex such as the following
+
+% font size setting
+% font change
+% margin size change
+% table of contents generation
+% setting title and subsections
+% generating lists and embedded lists
+% creating a box frame
+% using italics and bold faced letters
+% using the math mode, including super- and subscripts, Greek letters, etc.
+% adding blank space
+
+\fi
+
+
+\documentclass[10pt]{article}
+
+\addtolength{\oddsidemargin}{-.875in}
+\addtolength{\evensidemargin}{-.875in}
+\addtolength{\textwidth}{1.75in}
+\addtolength{\topmargin}{-.9in}
+\addtolength{\textheight}{1.8in}
+
+\begin{document}
+
+\tableofcontents
+
+\title{Basics in Exploratory Data Analysis Using R}
+\date{}
+\maketitle
+
+This is a simple tutorial introducing some of the basic packages and the useful functions they contain. These tools have wide-ranging applicability and can be easily adapted to financial modeling and risk management purposes.
+
+We will roughly follow the order of topics outlined below.\\
+
+\fbox{
+\parbox{15cm}{%
+\begin{enumerate}
+\item First, we learn to simulate some price processes
+\item Then, we try to find ways to fit models to the processes we just went through
+\item Finally, we try to make predictions or inferences from the work above
+\end{enumerate}}
+}
+\vspace{5mm}
+
+The packages used in this tutorial are as follows:  
+\begin{itemize}
+\item sde (stochastic differential equations)  
+\item lubridate (for massaging dates)  
+\item fGarch (for fitting Garch models)  
+\item xlsx (for importing Excel files)  
+\item evir (for working with Extreme Value distributions and plots)  
+\item ggplot2 (for creating some pretty charts)  
+\item mvtnorm (for multivariate normal)  
+\item MASS (for fitting some common distributions)  
+\item copula (for fitting copulas)  
+\item gtools (used here for applying functions to running windows of data)  
+\item tseries (for using functions/tests associated with time series)  
+\item forecast (for forecasting)  
+\item boot (for bootstraping)  
+\end{itemize}
+
+\section{Price processes}  
+
+We simulate 100 paths of each of the processes described below, plot them on a chart and show the 5th and 95th percentiles.
+
+\subsection{Random Walk}
+$$log(S_{t+\Delta t})=log(S_t)+\mu \Delta t+\sigma \sqrt{\Delta t}Z_t$$
+<<echo=TRUE,fig=TRUE,fig.width=5,fig.height=5,cache=TRUE,fig.align='center'>>=
+# Model:
+# s     =log(S)
+# r     =diff(s)
+# mu    =mean(r)
+# sigma =std(r)
+# z     =(r-mu)/sigma
+s_0=10
+mu=0.05/250
+sigma=0.2/sqrt(250)
+set.seed(123)
+x=matrix(s_0,ncol=100,nrow=10^3)    #store the 100 bm's in a matrix for plotting
+for (t in 2: 10^3)                  #note how loop is done in R
+  x[t,]=x[t-1,]+rnorm(100)*sigma+mu #note the subsetting syntax in R
+plot(seq(0,1,le=1000),x[,1],"n",    #note the syntax of the plotting function
+     ylim=range(x),xlab="",ylab="")    #note the beginning of the string in function call
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x,1,max),
+                                rev(apply(x,1,min))),col="gold",bor=F)
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x,1,quantile,.95),
+                                rev(apply(x,1,quantile,.05))),col="brown",bor=F)
+@
+
+\subsection{Mean-Reverting Ornstein-Uhlenbeck Process}
+$$dX_t=(\theta_1-\theta_2) dt+\theta_3 dW_t$$
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=5,fig.height=5,cache=TRUE,fig.align='center'>>=
+# Model:
+# dXt=(theta1-theta2)*dt+theta3*dWt
+require(sde)
+d_OU=expression(-5*x)
+s_OU=expression(3.5)
+x_OU=matrix(s_0,ncol=100,nrow=10^3)
+x_OU=sde.sim(X0=s_0,drift=d_OU,sigma=s_OU,N=999,M=100) #N is # of simulation steps
+                                                       #M is # of paths
+plot(seq(0,1,le=1000),x_OU[,1],"n",
+     ylim=range(x_OU),xlab="",ylab="")
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x_OU,1,max),
+                                rev(apply(x_OU,1,min))),col="gold",bor=F)
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x_OU,1,quantile,.95),
+                                rev(apply(x_OU,1,quantile,.05))),col="brown",bor=F)
+@
+
+\subsection{Cox-Ingersoll-Ross (CIR) Process}  
+$$dX_t=(\theta_1-\theta_2) dt+\theta_3 \sqrt{X_t} dW_t$$
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=5,fig.height=5,cache=TRUE,fig.align='center'>>=
+# Model:
+# dXt=(theta1-theta2)*dt+theta3*sqrt(Xt)*dWt
+d_CIR=expression(6-3*x)
+s_CIR=expression(2*sqrt(x))
+x_CIR=matrix(s_0,ncol=100,nrow=10^3)
+x_CIR=sde.sim(X0=s_0,drift=d_CIR,sigma=s_CIR,N=999,M=100)
+plot(seq(0,1,le=1000),x_CIR[,1],"n",
+     ylim=range(x_CIR),xlab="",ylab="")
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x_CIR,1,max),
+                                rev(apply(x_CIR,1,min))),col="gold",bor=F)
+polygon(c(1:10^3,10^3:1)/10^3,c(apply(x_CIR,1,quantile,.95),
+                                rev(apply(x_CIR,1,quantile,.05))),col="brown",bor=F)
+@
+
+\section{Fitting Models} 
+
+\subsection{Some Exploratory Data Analysis}
+
+We plot the histogram of the historical Henry Hub returns data and compare it to that of a normal distribution  
+
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+require(xlsx)
+histRet= read.xlsx("C:\\Users\\Yangster\\Dropbox\\Private\\HistPowerGasSpot_Values2.xlsx",1)
+retHH=histRet[which(histRet$Hub=="HH"),]
+
+attach(retHH)
+require(lubridate)          #Lubridate is a useful dates package 
+idx.remove=which(Price==0)  #Clean up HH prices/returns for non-trading days
+retHH=retHH[-idx.remove,]
+
+y=ymd(as.character(Date))
+par(mar=c(4, 5, 4, 2))      #Note how to set margins of the plotting device
+plot(y,Price,"l",xlab="Date",ylab="Returns",main=
+       "Henry Hub Historical Returns")
+
+hist(Price,breaks=30,xlim=range(Price),main="Histogram of HH Returns")
+set.seed(123)
+pSim=rnorm(length(Price),mean=mean(Price),sd=sd(Price))
+hist(pSim,breaks=30,add=T,col='red')
+@
+Since we are more concerned about the tails of the distribution, we use the functionality of fitting Generalized Pareto Distribution in the \textbf{evir} package and examine the fit of the model with some diagnostic plots.
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+require(evir)
+# Creates a plot showing how the estimate of shape varies with threshold or number of extremes.
+shape(Price*-1,models=30,start=15,end=100)
+# Fitting Generalized Pareto Distribution to data
+hh.est=gpd(Price*-1,nextremes=50)
+tailplot(hh.est)
+@
+Additionally, we can choose from diagnostic graphs created by the command \texttt{plot.gpd()}.
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+# Simulate from the fitted GPD and compare to the empirical data
+xi.est=hh.est$par.ests[1]
+beta.est=hh.est$par.ests[2]
+hist(Price,breaks=30,xlim=range(Price),main="Histogram of HH Returns")
+set.seed(123)
+pSim.gpd=rgpd(length(Price),xi=xi.est,beta=beta.est)*-1
+hist(pSim.gpd,breaks=30,add=T)  #add=T argument overlays the second histogram.
+@
+The overlay of histograms has become harder to see in the graph above. This prompts us to choose a different plotting method so we have more control over how the output is shown.
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+# Using the ggplot2 package for visualization
+require(ggplot2)
+idx=c(rep("HH",length(Price)),rep("GPD",length(Price)))
+hist.Comb=data.frame(idx,c(Price,pSim.gpd))
+colnames(hist.Comb)=c('Index','Returns')
+ggplot(hist.Comb, aes(Returns,fill = Index)) + geom_density(alpha = 0.2) +
+  coord_cartesian(xlim=c(-0,-0.4),ylim=c(0, 5))
+@
+
+\subsection{Fitting a GARCH (1,1) Model}  
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+require(fGarch)
+modGarch <- garchFit(formula=~garch(1,1),data=Price,cond.dist="norm")
+summary(modGarch)
+str(modGarch)       #To see the structure of the object returned by modGarch for later use
+set.seed(123)
+parList=modGarch@fit$par
+modGarchSpec=garchSpec(model=parList,cond.dist="norm")
+simGarch <- garchSim(modGarchSpec,n=length(y))
+plot(y,Price,"l",xlab="Date",ylab="Returns",main=
+       "Henry Hub Historical Returns")
+lines(y,simGarch,col="red")
+@
+The larger swings don't seem to be captured very well in the plot above. Is this because the Garch model is not calibrating to the outlier values in 2009-2010 period? Let's zoom in on a smaller band.
+
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+plot(y,Price,"l",xlab="Date",ylab="Returns",main=
+       "Henry Hub Historical Returns",ylim=c(-0.1,0.1))
+lines(y,simGarch,col="red")
+predict(modGarch,n.ahead=10,plot=TRUE)
+@
+We can also plot the 5th and 95th quantiles of the empirical data against the same quantiles of the simulated data using the fitted Garch model to gaugue how well the model performs.
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+quant=matrix(0,ncol=2,nrow=(length(y)-99))
+quantSim=matrix(0,ncol=2,nrow=(length(y)-99))
+for (i in 100:length(y)){
+  quant[i-99,1]=quantile(Price[i-99:i],probs=0.05)
+  quant[i-99,2]=quantile(Price[i-99:i],probs=0.95)
+}
+
+plot(y,Price,"l",xlab="Date",ylab="Returns",main=
+       "Henry Hub Historical Returns",ylim=c(-0.1,0.1))
+lines(y[100:length(y)],quant[,1],col="red",ty="l",lwd=3)
+lines(y[100:length(y)],quant[,2],col="red",ty="l",lwd=3)
+for (i in 100:length(y)){
+  quantSim[i-99,1]=quantile(simGarch[i-99:i],probs=0.05)
+  quantSim[i-99,2]=quantile(simGarch[i-99:i],probs=0.95)
+}
+lines(y[100:length(y)],quantSim[,1],col="blue",ty="p")
+lines(y[100:length(y)],quantSim[,2],col="blue",ty="p")
+@
+
+\subsection{Analysis of Dependence Structure}  
+We begin with some simple plots showing the relationship between WTI and Henry Hub returns. We plot in addition the Q-Q plots for the marginals (WTI and HH) separately, a simulated bivariate normal, and side-by-side plot of the two returns series.
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=12,fig.height=6,fig.align='center'>>=
+require(xlsx)
+histRet2= read.xlsx("C:\\Users\\Yangster\\Dropbox\\Private\\HistOilGasSpot.xlsx",1)
+attach(histRet2)
+require(lubridate)
+y=ymd(as.character(Date))
+range_axis=range(HH)
+par(pty="s")
+plot(HH,WTI,xlim=range_axis,ylim=range_axis,main="HH vs. WTI")
+par(pty="m")
+mu_2=c(mean(HH),mean(WTI))
+sigma_2=var(cbind(HH,WTI))
+require(mvtnorm)
+simNorm_2=rmvnorm(length(HH),mean=mu_2,sigma=sigma_2)
+par(mfrow=c(1,2))
+plot(HH,WTI,xlim=range_axis,ylim=range_axis,main="HH vs. WTI")
+plot(simNorm_2,xlim=range_axis,ylim=range_axis,main="Simulated Normal",
+     xlab="HH_sim",ylab="WTI_sim")
+qqnorm(HH,main="Q-Q for HH")
+qqnorm(WTI,main="Q-Q for WTI")
+@
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+# Plot the returns series side by side
+par(mfrow=c(2,1))
+par(mar=c(2,2.5,2,1))
+plot(y,HH,"l",main=
+       "Henry Hub Historical Returns",cex.lab=0.8,cex.main=0.8,cex.axis=0.8)
+plot(y,WTI,"l",main=
+       "WTI Historical Returns",cex.lab=0.8,cex.main=0.8,cex.axis=0.8)
+par(mfrow=c(1,1))
+par(mar=c(4,5,4,2))
+@
+Next we look at some measures of dependence.
+<<echo=TRUE,fig=TRUE,message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+# Pearson's linear correlation
+cor(HH, WTI,method="pearson")
+# Kendall's tau
+cor(HH, WTI,method="kendall")
+# Spearman's rho
+cor(HH, WTI,method="spearman")
+@
+We also look at the distribution for Henry Hub and WTI separately.
+<<echo=TRUE,message=FALSE,warning=FALSE,results='markup',cache=TRUE>>=
+# Fit both t and normal distributions to compare loglik
+require('MASS')
+fitdistr(HH,"t")
+fitdistr(HH,"normal")
+fitdistr(WTI,"t")
+fitdistr(WTI,"normal")
+@
+To fit the full dependence structure, we use the marginal + copula approach (See \textit{Statistics and Data Analysis for Financial Engineering} (P198) for further details).
+\begin{enumerate}
+\item we fit t distribution to each of the marginals
+\item we define a mvdc object (in the \textbf{copula} package)
+\item we pass some initial values to an \textit{optim} routine to searh for parameters (the search can fail)  
+\end{enumerate}
+
+Before we do so, we briefly mention some classes of copulas commonly encountered in the literature.  
+
+\begin{enumerate}
+\item Copula families: Elliptical Copula  
+    \begin{enumerate}
+    \item Gausssian                       
+    \item Student-t
+    \end{enumerate}
+
+\item Copula families: Arhimedian Copula  
+    \begin{enumerate}
+    \item Clayton's Copula                
+    \item Gumbel's Copula                 
+    \item Frank's Copula
+    \end{enumerate}
+
+\item Copula families: Extreme Value Copula  
+\end{enumerate}
+
+<<echo=TRUE,fig=TRUE,,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center',warning=FALSE,cache=TRUE>>=
+est.WTI = as.numeric(fitdistr(WTI,"t")$estimate)
+est.HH = as.numeric(fitdistr(HH,"t")$estimate)
+# The scale parameter of the fitted t is converted to sd below
+est.WTI[2] = est.WTI[2]*sqrt(est.WTI[3]/(est.WTI[3]-2))
+est.HH[2] = est.HH[2]*sqrt(est.HH[3]/(est.HH[3]-2))
+cor_tau=cor(WTI,HH,method="kendall")
+require(copula)
+require(fGarch) # needed for pstd function
+cop_t_dim2=tCopula(cor_tau,dim=2,dispstr="un",df=4)
+# The obs were standardized into the [0,1] interval to work with the est method
+data1 = cbind(pstd(WTI,mean=est.WTI[1],sd=est.WTI[2],nu=est.WTI[3]),
+              pstd(HH,mean=est.HH[1],sd=est.HH[2],nu=est.HH[3]))
+@
+<<echo=TRUE,cache=TRUE>>=
+# Convergence issue below!!!!
+ft1 = fitCopula(cop_t_dim2, method="mpl", data=data1,
+                start=c(cor_tau,4))
+@
+Although the optimization problem didn't converge, we finish the code for the sake of completion. If \textit{ft1} did find solutions, the following code (which we leave unevaluated) would have been used to search for a viable copula.
+<<echo=TRUE,eval=FALSE>>=
+mvdc_t = mvdc( cop_t_dim2, c("std","std"),
+                 list(list(mean=est.WIT[1],sd=est.WIT[2],nu=est.WIT[3]),
+                      list(mean=est.HH[1],sd=est.HH[2],nu=est.HH[3]) ) )
+
+start=c(est.WIT,est.HH,ft1@estimate)
+fitMvdc(cbind(WTI,HH), mvdc_t, start)
+@
+As a further exploration, we look at the running correlation between the two series at 20 data point intervals. The lack of structure from this plot may indicate why the copula approach may fail. In other words, there may not be much of dependence structure in the data itself, or it could be time-varying. 
+<<echo=TRUE,fig=TRUE,results='hide',message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+require(gtools)
+run_cor=running(HH,WTI,width=20,fun=cor,allow.fewer=FALSE)
+plot(Date[20:length(Date)],run_cor,type='s',xlab="")
+@
+Is the running correlation a stationary series?
+<<echo=TRUE,fig=TRUE,message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+require(tseries)
+adf.test(run_cor)
+@
+Can we use a classic ARIMA model to try to predict future correlations? Below we let R automatically search for an ARIMA structure based on Maximum Likelihood. We also plot a series based on the simulated data generated by the "best" model selected as well as its histogram.
+<<echo=TRUE,fig=TRUE,warning=FALSE,message=FALSE,fig.width=4,fig.height=4,fig.align='center'>>=
+require(forecast)
+cor.fit=auto.arima(run_cor)
+plot(forecast(cor.fit,h=20))
+set.seed(123)
+plot(simulate(cor.fit,nsim=length(run_cor)),lwd='2',col='red',ylab='',xlab='')
+cor.mat=matrix(ncol=1000,nrow=length(run_cor))
+for (i in 1:1000) 
+  cor.mat[,i]=simulate(cor.fit,nsim=length(run_cor))
+hist(cor.mat[length(run_cor),],breaks=30,main="",xlab='')
+@
+As a reference, the summary report of the \textbf{auto.arima} process used to select the "best" model is shown below.
+<<echo=TRUE,fig=TRUE,message=FALSE,fig.width=4,fig.height=4,fig.align='center',cache=TRUE>>=
+summary(cor.fit)
+@
+\end{document}

@@ -1,0 +1,394 @@
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.12.9)  16 JAN 2014 22:35
+entering extended mode
+**EDA_Energy.tex
+(C:\Users\Yangster\Dropbox\Latex\EDA_Energy.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2012-05-30, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2012-05-30, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+(C:\Users\Yangster\Dropbox\Latex\framed.sty
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen105
+\fb@frh=\dimen106
+\FrameRule=\dimen107
+\FrameSep=\dimen108
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\upquote\upquote.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+)
+(C:\Users\Yangster\Dropbox\Latex\EDA_Energy.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count88
+\scratchdimen=\dimen109
+\scratchbox=\box26
+\nofMPsegments=\count89
+\nofMParguments=\count90
+\everyMPshowfont=\toks15
+\MPscratchCnt=\count91
+\MPscratchDim=\dimen110
+\MPnumerator=\count92
+\makeMPintoPDFobject=\count93
+\everyMPtoPDFconversion=\toks16
+) (C:\Users\Yangster\Dropbox\Latex\EDA_Energy.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+)
+\tf@toc=\write3
+ [1
+
+{C:/Users/Yangster/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 87.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 87.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 87.
+
+
+LaTeX Warning: No \author given.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
+
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 105.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 105.
+Package color Info: Redefining color shadecolor on input line 127.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 137.
+ [2]
+<figure/unnamed-chunk-1.pdf, id=16, 361.35pt x 361.35pt>
+File: figure/unnamed-chunk-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-1.pdf used on input line 151.
+(pdftex.def)             Requested size: 361.34912pt x 361.34912pt.
+Package color Info: Redefining color shadecolor on input line 163.
+ [3 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-1.pdf>]
+Overfull \hbox (50.0091pt too wide) in paragraph at lines 170--170
+[][]\OT1/cmtt/m/n/10 x_OU[] []=[] []sde.sim[][]([][]X0[] []= s_0,[] []drift[] [
+]= d_OU,[] []sigma[] []= s_OU,[] []N[] []=[] []999[][],[] []M[] []=[] []100[][]
+)[]  []\OT1/cmtt/m/it/10 #N is # of simulation steps[][] 
+ []
+
+<figure/unnamed-chunk-2.pdf, id=27, 361.35pt x 361.35pt>
+File: figure/unnamed-chunk-2.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-2.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2.pdf used on input line 180.
+(pdftex.def)             Requested size: 361.34912pt x 361.34912pt.
+Package color Info: Redefining color shadecolor on input line 192.
+ [4 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-2.pdf>] <figure/unnam
+ed-chunk-3.pdf, id=37, 361.35pt x 361.35pt>
+File: figure/unnamed-chunk-3.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-3.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-3.pdf used on input line 208.
+(pdftex.def)             Requested size: 361.34912pt x 361.34912pt.
+Package color Info: Redefining color shadecolor on input line 224.
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 227
+.
+
+(C:/PROGRA~1/R/R-30~1.2/share/texmf/tex/latex\omscmtt.fd
+File: omscmtt.fd 
+)
+LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 227.
+
+Overfull \hbox (3.77396pt too wide) in paragraph at lines 227--227
+[][]\OT1/cmtt/m/n/10 histRet[] []=[] []read.xlsx[][]([][]"C:\OMS/cmsy/m/n/10 nn
+\OT1/cmtt/m/n/10 Users\OMS/cmsy/m/n/10 nn\OT1/cmtt/m/n/10 Yangster\OMS/cmsy/m/n
+/10 nn\OT1/cmtt/m/n/10 Dropbox\OMS/cmsy/m/n/10 nn\OT1/cmtt/m/n/10 Private\OMS/c
+msy/m/n/10 nn\OT1/cmtt/m/n/10 HistPowerGasSpot_Values2.xlsx"[][],[][] 
+ []
+
+
+Overfull \hbox (6.27335pt too wide) in paragraph at lines 238--238
+[][]\OT1/cmtt/m/n/10 plot[][](y, Price,[] []"l"[][],[] []xlab[] []=[] []"Date"[
+][],[] []ylab[] []=[] []"Returns"[][],[] []main[] []=[] []"Henry Hub Historical
+ Returns"[][])[][] 
+ []
+
+<figure/unnamed-chunk-41.pdf, id=38, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-41.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-41.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-41.pdf used on input line 242.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [5 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-3.pdf>] <figure/unnam
+ed-chunk-42.pdf, id=47, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-42.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-42.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-42.pdf used on input line 255.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+Package color Info: Redefining color shadecolor on input line 265.
+ [6 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-41.pdf> <C:/Users/Yan
+gster/Dropbox/Latex/figure/unnamed-chunk-42.pdf>] <figure/unnamed-chunk-51.pdf,
+ id=63, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-51.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-51.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-51.pdf used on input line 274.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+
+<figure/unnamed-chunk-52.pdf, id=64, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-52.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-52.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-52.pdf used on input line 286.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [7 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-51.pdf>]
+Package color Info: Redefining color shadecolor on input line 296.
+ <figure/unnamed-chunk-6.pdf, id=74, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-6.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-6.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-6.pdf used on input line 308.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [8 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-52.pdf>]
+Package color Info: Redefining color shadecolor on input line 318.
+ <figure/unnamed-chunk-7.pdf, id=83, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-7.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-7.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-7.pdf used on input line 330.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [9 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-6.pdf>]
+Package color Info: Redefining color shadecolor on input line 341.
+
+Overfull \hbox (6.27335pt too wide) in paragraph at lines 351--351
+[][]\OT1/cmtt/m/n/10 plot[][](y, Price,[] []"l"[][],[] []xlab[] []=[] []"Date"[
+][],[] []ylab[] []=[] []"Returns"[][],[] []main[] []=[] []"Henry Hub Historical
+ Returns"[][])[][] 
+ []
+
+<figure/unnamed-chunk-8.pdf, id=93, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-8.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-8.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-8.pdf used on input line 356.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [10 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-7.pdf>]
+Package color Info: Redefining color shadecolor on input line 367.
+
+Overfull \hbox (6.27335pt too wide) in paragraph at lines 369--369
+[][]\OT1/cmtt/m/n/10 plot[][](y, Price,[] []"l"[][],[] []xlab[] []=[] []"Date"[
+][],[] []ylab[] []=[] []"Returns"[][],[] []main[] []=[] []"Henry Hub Historical
+ Returns"[][],[][] 
+ []
+
+<figure/unnamed-chunk-91.pdf, id=106, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-91.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-91.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-91.pdf used on input line 375.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [11 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-8.pdf> <C:/Users/Yan
+gster/Dropbox/Latex/figure/unnamed-chunk-91.pdf>] <figure/unnamed-chunk-92.pdf,
+ id=122, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-92.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-92.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-92.pdf used on input line 385.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+Package color Info: Redefining color shadecolor on input line 395.
+
+Overfull \hbox (6.27335pt too wide) in paragraph at lines 404--404
+[][]\OT1/cmtt/m/n/10 plot[][](y, Price,[] []"l"[][],[] []xlab[] []=[] []"Date"[
+][],[] []ylab[] []=[] []"Returns"[][],[] []main[] []=[] []"Henry Hub Historical
+ Returns"[][],[][] 
+ []
+
+<figure/unnamed-chunk-10.pdf, id=123, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-10.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-10.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-10.pdf used on input line 417.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [12 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-92.pdf>]
+Package color Info: Redefining color shadecolor on input line 429.
+
+<figure/unnamed-chunk-111.pdf, id=134, 867.24pt x 433.62pt>
+File: figure/unnamed-chunk-111.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-111.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-111.pdf used on input line 452.
+(pdftex.def)             Requested size: 471.47249pt x 235.73927pt.
+ [13 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-10.pdf>]
+<figure/unnamed-chunk-112.pdf, id=145, 867.24pt x 433.62pt>
+File: figure/unnamed-chunk-112.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-112.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-112.pdf used on input line 463.
+(pdftex.def)             Requested size: 471.47249pt x 235.73927pt.
+Package color Info: Redefining color shadecolor on input line 472.
+
+<figure/unnamed-chunk-12.pdf, id=146, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-12.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-12.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-12.pdf used on input line 484.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [14 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-111.pdf> <C:/Users/Y
+angster/Dropbox/Latex/figure/unnamed-chunk-112.pdf>]
+Package color Info: Redefining color shadecolor on input line 498.
+Package color Info: Redefining color shadecolor on input line 525.
+ [15 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-12.pdf>]
+Package color Info: Redefining color shadecolor on input line 590.
+Package color Info: Redefining color shadecolor on input line 610.
+Package color Info: Redefining color shadecolor on input line 623.
+
+[16]
+Package color Info: Redefining color shadecolor on input line 636.
+ <figure/unnamed-chunk-18.pdf, id=175, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-18.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-18.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-18.pdf used on input line 644.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+Package color Info: Redefining color shadecolor on input line 654.
+Package color Info: Redefining color shadecolor on input line 674.
+ [17 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-18.pdf>]
+<figure/unnamed-chunk-201.pdf, id=184, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-201.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-201.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-201.pdf used on input line 682.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+
+<figure/unnamed-chunk-202.pdf, id=185, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-202.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-202.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-202.pdf used on input line 694.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+ [18 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-201.pdf>]
+<figure/unnamed-chunk-203.pdf, id=195, 289.08pt x 289.08pt>
+File: figure/unnamed-chunk-203.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-203.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-203.pdf used on input line 706.
+(pdftex.def)             Requested size: 289.07928pt x 289.09251pt.
+Package color Info: Redefining color shadecolor on input line 716.
+ [19 <C:/Users/Yangster/Dropbox/Latex/figure/unnamed-chunk-202.pdf> <C:/Users/Y
+angster/Dropbox/Latex/figure/unnamed-chunk-203.pdf>] [20] (C:\Users\Yangster\Dr
+opbox\Latex\EDA_Energy.aux) ) 
+Here is how much of TeX's memory you used:
+ 1415 strings out of 493921
+ 20756 string characters out of 3144867
+ 76392 words of memory out of 3000000
+ 4701 multiletter control sequences out of 15000+200000
+ 8577 words of font info for 31 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 27i,6n,19p,621b,277s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmex10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmitt10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+r7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.p
+fb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+>
+Output written on EDA_Energy.pdf (20 pages, 668160 bytes).
+PDF statistics:
+ 251 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+
